@@ -3907,3 +3907,16 @@ input, select, textarea {
 			}
 
 		}
+/* Custom Academic Dark Mode Overrides */
+.wrapper.style1 {
+    background-color: #0f172a !important; /* Deep Slate Blue */
+    background-image: none !important;
+}
+.wrapper.style2 {
+    background-color: #1e293b !important; /* Slightly lighter slate for contrast */
+    background-image: none !important;
+}
+.wrapper.style3 {
+    background-color: #0f172a !important; 
+    background-image: none !important;
+}
