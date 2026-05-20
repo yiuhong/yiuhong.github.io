@@ -3907,38 +3907,4 @@ input, select, textarea {
 			}
 
 		}
-/* Custom Academic Dark Mode Overrides */
-.wrapper.style1 {
-    background-color: #0f172a !important; /* Deep Slate Blue */
-    background-image: none !important;
-}
-.wrapper.style2 {
-    background-color: #1e293b !important; /* Slightly lighter slate for contrast */
-    background-image: none !important;
-}
-.wrapper.style3 {
-    background-color: #0f172a !important; 
-    background-image: none !important;
-}
 
-/* Make the footer background match the dark section color */
-#footer.wrapper.style1-alt {
-    background-color: #0f172a !important; /* Matches the deep slate blue */
-    box-shadow: none !important;           /* Removes any lingering border lines */
-}
-
-/* Change the Sidebar Background Color to a Dark Indigo Blend */
-#sidebar {
-    background-color: #161224 !important; /* Perfect midpoint: subtle purple undertones, heavily darkened */
-}
-
-/* Match the active item highlight to a softer purple-gray tint */
-#sidebar nav ul li a.active {
-    background-color: #2b2244 !important; /* Slightly lighter blend for the active tab */
-    color: #ffffff !important;
-}
-/* Smooth out the look of active link highlights in the sidebar */
-#sidebar nav ul li a.active {
-    background-color: #1e293b !important; /* Highlight matches your section color */
-    color: #ffffff !important;
-}
