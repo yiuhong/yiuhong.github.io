@@ -3957,3 +3957,28 @@ label, input, textarea {
     background: #f1f5f9 !important;
     border: 1px solid #cbd5e1 !important;
 }
+
+/* --- FIX FOOTER TEXT COLOR --- */
+#footer .copyright, #footer .copyright a {
+    color: #0f172a !important; /* Changes the copyright text and links to crisp dark charcoal/black */
+    border-bottom-color: rgba(15, 23, 42, 0.2) !important; /* Makes underline accents match */
+}
+
+/* --- STARK BLACK & WHITE ACCENTS --- */
+
+/* 1. Make the menu navigation indicator bar pure black */
+#sidebar nav ul li a:after {
+    background-color: #0f172a !important; /* Stark black underline */
+    background-image: none !important;
+}
+
+/* 2. Turn all icons to charcoal/black to match the headings */
+.icon, .icons a, .features .icon {
+    color: #0f172a !important; /* Dark charcoal/black icons */
+}
+
+/* 3. Give the icons a clean fade on hover instead of a color shift */
+.icon:hover, .icons a:hover {
+    color: #64748b !important; /* Softens to gray when moused over */
+    opacity: 0.8;
+}
