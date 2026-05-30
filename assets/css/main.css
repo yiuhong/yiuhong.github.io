@@ -3908,3 +3908,52 @@ input, select, textarea {
 
 		}
 
+/* --- MINIMALIST WHITE THEME OVERRIDE --- */
+body, html, #sidebar, .wrapper {
+    background-color: #ffffff !important;
+    background-image: none !important;
+    color: #1e293b !important; /* Deep charcoal text for readability */
+}
+
+/* Sidebar Styling - Clean Light Gray */
+#sidebar {
+    background: #f8fafc !important;
+    border-right: 1px solid #e2e8f0 !important;
+}
+
+/* Sidebar Links */
+#sidebar nav ul li a {
+    color: #64748b !important;
+}
+#sidebar nav ul li a.active, #sidebar nav ul li a:hover {
+    color: #0f172a !important;
+    font-weight: bold;
+}
+
+/* Section Containers and Headings */
+h1, h2, h3, strong {
+    color: #0f172a !important; /* Crisp dark headings */
+}
+
+section {
+    border-bottom: 1px solid #e2e8f0 !important;
+    background: #ffffff !important;
+}
+
+/* Clean, Minimalist Buttons */
+.button {
+    background-color: #0f172a !important;
+    color: #ffffff !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+.button:hover {
+    background-color: #334155 !important;
+}
+
+/* Input boxes, forms, and lists */
+label, input, textarea {
+    color: #1e293b !important;
+    background: #f1f5f9 !important;
+    border: 1px solid #cbd5e1 !important;
+}
