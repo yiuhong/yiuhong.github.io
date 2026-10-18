@@ -4164,6 +4164,7 @@ h1.major:after { background-image: none !important; background-color: #000000 !i
 			left: 0;
 			right: 0;
 			top: 100%;
+			height: auto;
 			max-height: calc(100vh - 3.5em);
 			overflow-x: hidden;
 			overflow-y: auto;
@@ -4172,6 +4173,7 @@ h1.major:after { background-image: none !important; background-color: #000000 !i
 			background: #ffffff !important;
 			border-bottom: 1px solid #000000;
 			text-align: left;
+			line-height: normal;
 		}
 
 		#sidebar.is-nav-open nav {

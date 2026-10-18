@@ -197,10 +197,18 @@
 					var $this = $(this);
 
 					// Close the mobile menu once a destination is chosen.
+					// Focus moves on the next turn so it is not dropped while the
+					// page behind the menu is still inert.
 						if (mobileNavQuery.matches) {
 
+							var mobileHref = $this.attr('href');
+
 							setMobileNavOpen(false);
-							focusSectionTarget($this.attr('href'));
+							window.setTimeout(function() {
+
+								focusSectionTarget(mobileHref);
+
+							}, 0);
 
 						}
 
