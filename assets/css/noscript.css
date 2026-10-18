@@ -41,3 +41,61 @@
 		transform: none !important;
 		opacity: 1 !important;
 	}
+
+/* Mobile navigation without JavaScript: show the links in normal flow. */
+
+	@media screen and (max-width: 736px) {
+
+		#sidebar {
+			display: block !important;
+			position: relative !important;
+			height: auto !important;
+			overflow: visible !important;
+			width: 100% !important;
+			padding: 0 !important;
+			text-align: left !important;
+			border-right: 0 !important;
+			border-bottom: 1px solid #000000 !important;
+		}
+
+			#sidebar > .inner {
+				display: block !important;
+				height: auto !important;
+				min-height: 0 !important;
+			}
+
+			#sidebar .mobile-nav-toggle {
+				display: none !important;
+			}
+
+			#sidebar nav {
+				display: block !important;
+				position: static !important;
+				max-height: none !important;
+				overflow: visible !important;
+			}
+
+				#sidebar nav ul {
+					display: block !important;
+					height: auto !important;
+				}
+
+					#sidebar nav ul li {
+						display: block !important;
+						height: auto !important;
+						margin: 0 !important;
+						border-top: 1px solid #000000;
+					}
+
+					#sidebar nav a {
+						height: auto !important;
+						line-height: 1.4 !important;
+						padding: 0.85em 1.25em !important;
+						text-align: left;
+					}
+
+		#sidebar + #wrapper {
+			padding-top: 0 !important;
+		}
+
+	}

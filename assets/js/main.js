@@ -47,13 +47,170 @@
 	// Sidebar.
 		if ($sidebar.length > 0) {
 
-			var $sidebar_a = $sidebar.find('a');
+			var $sidebar_a = $sidebar.find('a'),
+				$toggle = $sidebar.find('.mobile-nav-toggle'),
+				$nav = $sidebar.find('nav'),
+				$page = $('#wrapper, #footer'),
+				mobileNavQuery = window.matchMedia('(max-width: 736px)');
+
+			// Mobile menu. The template hides #sidebar below 736px; this toggle replaces it.
+				var setMobileNavOpen = function(open) {
+
+					open = !!open && mobileNavQuery.matches;
+
+					$sidebar.toggleClass('is-nav-open', open);
+					$body.toggleClass('is-nav-open', open);
+
+					if ($toggle.length > 0) {
+
+						$toggle.attr('aria-expanded', open ? 'true' : 'false');
+						$toggle.find('.mobile-nav-toggle-label').text(open ? 'Close' : 'Menu');
+
+					}
+
+					if (open || !mobileNavQuery.matches)
+						$nav.removeAttr('aria-hidden');
+					else
+						$nav.attr('aria-hidden', 'true');
+
+					$page.each(function() {
+
+						this.inert = open;
+
+						if (open)
+							this.setAttribute('aria-hidden', 'true');
+						else
+							this.removeAttribute('aria-hidden');
+
+					});
+
+				};
+
+				var focusSectionTarget = function(href) {
+
+					var target, heading, focusTarget;
+
+					if (!href || href.charAt(0) != '#')
+						return;
+
+					target = document.querySelector(href);
+
+					if (!target)
+						return;
+
+					heading = target.querySelector('h1, h2, h3, h4');
+					focusTarget = heading || target;
+
+					if (!focusTarget.hasAttribute('tabindex'))
+						focusTarget.setAttribute('tabindex', '-1');
+
+					focusTarget.focus({ preventScroll: true });
+
+				};
+
+				if ($toggle.length > 0) {
+
+					$toggle.on('click', function(event) {
+
+						event.preventDefault();
+						event.stopPropagation();
+						setMobileNavOpen(!$sidebar.hasClass('is-nav-open'));
+
+					});
+
+					$body.on('click', function(event) {
+
+						if (!$sidebar.hasClass('is-nav-open'))
+							return;
+
+						if ($(event.target).closest('#sidebar').length)
+							return;
+
+						setMobileNavOpen(false);
+
+					});
+
+					$window.on('keydown', function(event) {
+
+						var focusables, first, last;
+
+						if (!$sidebar.hasClass('is-nav-open'))
+							return;
+
+						if (event.key == 'Escape') {
+
+							event.preventDefault();
+							setMobileNavOpen(false);
+							$toggle.trigger('focus');
+							return;
+
+						}
+
+						if (event.key != 'Tab')
+							return;
+
+						focusables = $sidebar.find('button, a').filter(':visible');
+
+						if (focusables.length == 0)
+							return;
+
+						first = focusables[0];
+						last = focusables[focusables.length - 1];
+
+						if (event.shiftKey && document.activeElement === first) {
+
+							event.preventDefault();
+							last.focus();
+
+						}
+						else if (!event.shiftKey && document.activeElement === last) {
+
+							event.preventDefault();
+							first.focus();
+
+						}
+
+					});
+
+					var onMobileNavViewport = function() {
+
+						if (!mobileNavQuery.matches)
+							setMobileNavOpen(false);
+						else if (!$sidebar.hasClass('is-nav-open'))
+							$nav.attr('aria-hidden', 'true');
+
+					};
+
+					if (mobileNavQuery.addEventListener)
+						mobileNavQuery.addEventListener('change', onMobileNavViewport);
+					else if (mobileNavQuery.addListener)
+						mobileNavQuery.addListener(onMobileNavViewport);
+
+					onMobileNavViewport();
+
+				}
 
 			$sidebar_a
 				.addClass('scrolly')
 				.on('click', function() {
 
 					var $this = $(this);
+
+					// Close the mobile menu once a destination is chosen.
+					// Focus moves on the next turn so it is not dropped while the
+					// page behind the menu is still inert.
+						if (mobileNavQuery.matches) {
+
+							var mobileHref = $this.attr('href');
+
+							setMobileNavOpen(false);
+							window.setTimeout(function() {
+
+								focusSectionTarget(mobileHref);
+
+							}, 0);
+
+						}
 
 					// External link? Bail.
 						if ($this.attr('href').charAt(0) != '#')
@@ -118,10 +275,16 @@
 			speed: 1000,
 			offset: function() {
 
+				if ($sidebar.length == 0)
+					return 0;
+
+				// Fixed mobile menu bar.
+					if (window.matchMedia('(max-width: 736px)').matches)
+						return $sidebar.outerHeight();
+
 				// If <=large, >small, and sidebar is present, use its height as the offset.
 					if (breakpoints.active('<=large')
-					&&	!breakpoints.active('<=small')
-					&&	$sidebar.length > 0)
+					&&	!breakpoints.active('<=small'))
 						return $sidebar.height();
 
 				return 0;
