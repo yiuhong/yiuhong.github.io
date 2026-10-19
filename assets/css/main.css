@@ -4249,3 +4249,69 @@ h1.major:after { background-image: none !important; background-color: #000000 !i
 	}
 
 }
+
+/* ==========================================================================
+   Homepage: separate-page nav, icon buttons, long action labels
+   ========================================================================== */
+
+/* Teaching Materials Library and Resources leave this page.
+   The theme already underlines every nav item, so the cue is the icon only. */
+#sidebar nav > ul > li.nav-separate > a > .icon {
+	display: inline-block;
+	margin-left: 0.35em;
+	font-size: 0.85em;
+	letter-spacing: 0;
+	line-height: 1;
+	vertical-align: 0.05em;
+	opacity: 0.7;
+}
+
+/* Feature cards absolutely position every .icon, which stacked the
+   GitHub buttons on the decorative icon. Keep action buttons in flow. */
+.features section a.button.icon {
+	position: relative;
+	left: auto;
+	top: auto;
+	opacity: 1;
+	-moz-transform: none;
+	-webkit-transform: none;
+	-ms-transform: none;
+	transform: none;
+	-moz-transition: border-color 0.2s ease;
+	-webkit-transition: border-color 0.2s ease;
+	-ms-transition: border-color 0.2s ease;
+	transition: border-color 0.2s ease;
+}
+
+/* Monochrome theme paints every icon black. Let button glyphs follow the label. */
+.button.primary {
+	background-color: #000000 !important;
+	color: #ffffff !important;
+}
+
+	.button.primary.icon:before,
+	.button.icon:hover:before {
+		color: #ffffff !important;
+	}
+
+	.button.primary:hover {
+		background-color: #ffffff !important;
+		color: #000000 !important;
+	}
+
+		.button.primary.icon:hover:before {
+			color: #000000 !important;
+		}
+
+/* Long labels stay inside the pill on a phone. */
+@media screen and (max-width: 736px) {
+
+	#one .button.primary,
+	#two > .inner > ul.actions .button {
+		white-space: normal;
+		height: auto;
+		line-height: 1.45;
+		padding: 1.15em 1.35em;
+	}
+
+}
