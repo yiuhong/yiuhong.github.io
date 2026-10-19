@@ -4249,3 +4249,66 @@ h1.major:after { background-image: none !important; background-color: #000000 !i
 	}
 
 }
+
+/* ==========================================================================
+   Homepage: separate-page nav, icon buttons, long action labels
+   ========================================================================== */
+
+/* Teaching Materials Library and Resources leave this page. */
+#sidebar nav > ul > li.nav-separate {
+	border-top: 1px solid rgba(0, 0, 0, 0.28);
+	padding-top: 0.85em;
+}
+
+	#sidebar nav > ul > li.nav-separate > a > .icon {
+		display: inline-block;
+		margin-left: 0.35em;
+		font-size: 0.85em;
+		letter-spacing: 0;
+		line-height: 1;
+		vertical-align: 0.05em;
+		opacity: 0.7;
+	}
+
+/* Horizontal top bar: keep the cue without extra vertical padding. */
+@media screen and (max-width: 1280px) and (min-width: 737px) {
+
+	#sidebar nav > ul > li.nav-separate {
+		padding-top: 0;
+		border-top: 2px solid #000000;
+	}
+
+}
+
+/* Monochrome theme paints every icon black. Let button glyphs follow the label. */
+.button.primary {
+	background-color: #000000 !important;
+	color: #ffffff !important;
+}
+
+	.button.primary.icon:before,
+	.button.icon:hover:before {
+		color: #ffffff !important;
+	}
+
+	.button.primary:hover {
+		background-color: #ffffff !important;
+		color: #000000 !important;
+	}
+
+		.button.primary.icon:hover:before {
+			color: #000000 !important;
+		}
+
+/* Long labels stay inside the pill on a phone. */
+@media screen and (max-width: 736px) {
+
+	#one .button.primary,
+	#two > .inner > ul.actions .button {
+		white-space: normal;
+		height: auto;
+		line-height: 1.45;
+		padding: 1.15em 1.35em;
+	}
+
+}
