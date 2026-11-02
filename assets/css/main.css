@@ -4255,6 +4255,7 @@ h1.major:after { background-image: none !important; background-color: #000000 !i
    ========================================================================== */
 
 /* Project Viz and Resources leave this page.
+   Project Trial is a card in My projects and opens in a new tab.
    The theme already underlines every nav item, so the cue is the icon only. */
 #sidebar nav > ul > li.nav-separate > a > .icon {
 	display: inline-block;
