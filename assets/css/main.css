@@ -4316,3 +4316,34 @@ h1.major:after { background-image: none !important; background-color: #000000 !i
 	}
 
 }
+
+/* My projects: black wordmarks replace the circular feature icons.
+   Both marks share a roughly 4:1 viewBox, so one width keeps the cards parallel.
+   The shared feature padding reserves a left gutter for those icons; these
+   cards do not need it. */
+#projects .features section {
+	padding: 2.5em 2.25em 1em 2.25em;
+}
+
+#projects .project-wordmark {
+	display: block;
+	width: 100%;
+	height: auto;
+	margin: 0 0 1.15em 0;
+}
+
+@media screen and (max-width: 736px) {
+
+	#projects .features section {
+		padding: 2em 1.5em 0.1em 1.5em;
+	}
+
+}
+
+@media screen and (max-width: 480px) {
+
+	#projects .features section {
+		padding: 1.75em 1.25em 0.1em 1.25em;
+	}
+
+}
