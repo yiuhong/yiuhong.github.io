@@ -4254,7 +4254,7 @@ h1.major:after { background-image: none !important; background-color: #000000 !i
    Homepage: separate-page nav, icon buttons, long action labels
    ========================================================================== */
 
-/* Teaching Materials Library and Resources leave this page.
+/* Project Viz and Resources leave this page.
    The theme already underlines every nav item, so the cue is the icon only. */
 #sidebar nav > ul > li.nav-separate > a > .icon {
 	display: inline-block;
