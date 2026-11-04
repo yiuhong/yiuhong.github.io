@@ -3942,8 +3942,48 @@ code { background: #f5f5f5 !important; border-color: #000000 !important; color: 
 #sidebar nav ul li a:after { background-color: #000000 !important; background-image: none !important; }
 #sidebar nav ul li a.active { color: #000000 !important; font-weight: bold !important; }
 
-/* 6. Grids & Features */
-.features section { border: 1px solid #000000 !important; background: #ffffff !important; }
+/* 6. Grids & Features
+   Hyperspace draws the outer frame on .features and leaves border-top
+   off the first row (and, below 980px, off the first cell) so that frame
+   is the top edge. The frame is translucent white, so on this page the
+   box is open along the top. Paint the frame black and keep the theme's
+   single internal rules. */
+.features {
+	border: 1px solid #000000 !important;
+	background: #ffffff !important;
+}
+
+.features > section {
+	background: #ffffff !important;
+	border-color: #000000 !important;
+	border-style: solid !important;
+	border-width: 1px 0 0 0 !important;
+}
+
+@media screen and (min-width: 981px) {
+
+	.features > section:nth-child(-n + 2) {
+		border-top-width: 0 !important;
+	}
+
+	.features > section:nth-child(2n) {
+		border-left-width: 1px !important;
+	}
+
+}
+
+@media screen and (max-width: 980px) {
+
+	.features > section {
+		border-top-width: 1px !important;
+		border-left-width: 0 !important;
+	}
+
+	.features > section:first-child {
+		border-top-width: 0 !important;
+	}
+
+}
 
 /* 7. ALL ICONS TO BLACK */
 .icon, .icons a, .features .icon, .icon:before { 
