@@ -1,4 +1,4 @@
-/* Homepage navigation. No jQuery, no Hyperspace helpers. */
+/* Site navigation. No jQuery, no Hyperspace helpers. */
 (function () {
 	"use strict";
 

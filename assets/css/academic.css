@@ -1,4 +1,4 @@
-/* Homepage for the academic layout (Phase 1).
+/* Academic site layout.
    White field, dark text, one ink-blue accent.
    Solid surfaces only: no grid, no paper texture, no ruled lines. */
 
@@ -291,7 +291,8 @@ ol {
 	color: var(--accent);
 }
 
-.site-nav a[aria-current="true"] {
+.site-nav a[aria-current="true"],
+.site-nav a[aria-current="page"] {
 	color: var(--accent);
 	box-shadow: inset 0 -2px 0 var(--accent);
 }
@@ -636,7 +637,8 @@ ol {
 		border-left: 0;
 	}
 
-	.site-nav a[aria-current="true"] {
+	.site-nav a[aria-current="true"],
+	.site-nav a[aria-current="page"] {
 		box-shadow: inset 3px 0 0 var(--accent);
 	}
 

@@ -1,0 +1,52 @@
+/* Resources page only. Header, type, color, and buttons come from academic.css. */
+
+.resource-list {
+	margin-top: 1.75rem;
+}
+
+.resource h3 {
+	margin-bottom: 0.45rem;
+}
+
+.resource-details {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.35rem 1.5rem;
+	margin: 0 0 0.8rem;
+	padding: 0;
+}
+
+.resource-details > div {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.35rem;
+	min-width: 0;
+}
+
+.resource-details dt {
+	margin: 0;
+	color: var(--muted);
+	font-weight: 600;
+}
+
+.resource-details dt::after {
+	content: ":";
+}
+
+.resource-details dd {
+	margin: 0;
+}
+
+.resource .citation {
+	margin-bottom: 0.8rem;
+}
+
+.resource .actions {
+	margin-top: 0;
+}
+
+.resource + .resource {
+	margin-top: 1.35rem;
+	padding-top: 1.35rem;
+	border-top: 1px solid var(--line);
+}
