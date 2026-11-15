@@ -495,6 +495,7 @@ ol {
 	display: flex;
 	flex-direction: column;
 	height: 100%;
+	container-type: inline-size;
 }
 
 .project-card .actions {
@@ -504,8 +505,15 @@ ol {
 
 .project-wordmark {
 	display: block;
-	width: min(100%, 26rem);
+	align-self: flex-start;
+	width: auto;
 	height: auto;
+	max-width: 100%;
+	/* Construct is the widest lockup (1639×280). Cap every wordmark at the
+	   height Construct has when it fills the card, so the three images share
+	   a height and none overflow. align-self keeps the flex card from
+	   stretching the narrower lockups to that full width. */
+	max-height: calc(100cqi * 280 / 1639);
 	margin: 0 0 1.15rem;
 }
 
